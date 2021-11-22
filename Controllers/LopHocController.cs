@@ -48,7 +48,8 @@ namespace NetCoreDemo.Controllers
         // GET: LopHoc/Create
         public IActionResult Create()
         {
-            ViewData["StudentID"] = new SelectList(_context.Student, "StudentID", "StudentID");
+            ViewData["StudentID"] = new SelectList(_context.Student, "StudentID", "StudentName");
+            ViewData["GiaovienID"] = new SelectList(_context.Giaovien, "GiaovienID", "Tengiaovien");
             return View();
         }
 
@@ -65,7 +66,8 @@ namespace NetCoreDemo.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StudentID"] = new SelectList(_context.Student, "StudentID", "StudentID", lopHoc.StudentID);
+            ViewData["StudentID"] = new SelectList(_context.Student, "StudentID", "StudentName", lopHoc.StudentID);
+            ViewData["GiaovienID"] = new SelectList(_context.Giaovien, "GiaovienID", "Tengiaovien", lopHoc.GiaovienID);
             return View(lopHoc);
         }
 
