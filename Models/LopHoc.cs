@@ -13,9 +13,12 @@ namespace NetCoreDemo.Models
         [Display(Name = "Tên Lớp")]
         public string LopHocName {get; set;}
         [Display(Name = "Mã Sinh Viên")]
-
         public string StudentID { get; set; }
+        [Display(Name = "Mã Giáo viên")]
+        public string GiaovienID { get; set; }
+
         public Student Student { get; set; }
+         public Giaovien Giaovien { get; set; }
 
     }
 }

@@ -406,3 +406,8 @@ C:\Project\NetCoreDemo\obj\Debug\net5.0\NetCoreDemo.dll
 C:\Project\NetCoreDemo\obj\Debug\net5.0\ref\NetCoreDemo.dll
 C:\Project\NetCoreDemo\obj\Debug\net5.0\NetCoreDemo.pdb
 C:\Project\NetCoreDemo\obj\Debug\net5.0\NetCoreDemo.genruntimeconfig.cache
+C:\Project\NetCoreDemo\obj\Debug\net5.0\Razor\Views\Giaovien\Create.cshtml.g.cs
+C:\Project\NetCoreDemo\obj\Debug\net5.0\Razor\Views\Giaovien\Delete.cshtml.g.cs
+C:\Project\NetCoreDemo\obj\Debug\net5.0\Razor\Views\Giaovien\Details.cshtml.g.cs
+C:\Project\NetCoreDemo\obj\Debug\net5.0\Razor\Views\Giaovien\Edit.cshtml.g.cs
+C:\Project\NetCoreDemo\obj\Debug\net5.0\Razor\Views\Giaovien\Index.cshtml.g.cs

@@ -23,6 +23,7 @@ namespace NetCoreDemo.Data{
         public DbSet<NetCoreDemo.Models.Product> Product { get; set; }
         public DbSet<NetCoreDemo.Models.DonHang> DonHang { get; set; }
         public DbSet<NetCoreDemo.Models.LopHoc> LopHoc { get; set; }
+        public DbSet<NetCoreDemo.Models.Giaovien> Giaovien { get; set; }
     }
 
 }
