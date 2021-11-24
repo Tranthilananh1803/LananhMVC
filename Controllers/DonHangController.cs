@@ -20,10 +20,32 @@ namespace NetCoreDemo.Controllers
         }
 
         // GET: DonHang
-        public async Task<IActionResult> Index()
+       public async Task<IActionResult> Index(string DonHangDC, string SearchString)
         {
-            return View(await _context.DonHang.ToListAsync());
-        }
+            IQueryable<string> genreQuery = from m in _context.DonHang
+                                    orderby m.DiaChi
+                                    select m.DiaChi;
+            var DC = from m in _context.DonHang
+                        select m;
+
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                DC = DC.Where(m => m.PersonName.Contains(SearchString));
+            }
+        if (!string.IsNullOrEmpty(DonHangDC))
+            {
+               DC = DC.Where(x => x.DiaChi == DonHangDC);
+            }
+
+            var diachi = new DonhangDiachi
+            {
+                Diachis = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                DonHang = await DC.ToListAsync()
+            };
+
+            return View(diachi);
+   
+         }
 
         // GET: DonHang/Details/5
         public async Task<IActionResult> Details(string id)

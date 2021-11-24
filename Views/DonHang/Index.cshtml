@@ -1,4 +1,4 @@
-@model IEnumerable<NetCoreDemo.Models.DonHang>
+@model NetCoreDemo.Models.DonhangDiachi
 
 @{
     ViewData["Title"] = "Index";
@@ -9,26 +9,38 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<form asp-controller="DonHang" asp-action="Index" method="get">
+    <p>
+        <select asp-for="DonhangDC" asp-items="Model.Diachis">
+            <option value="">All</option>
+        </select>
+
+        Ten Khach Hang : <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.MaDonHang)
+                @Html.DisplayNameFor(model => model.DonHang[0].MaDonHang)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SoDienThoai)
+                @Html.DisplayNameFor(model => model.DonHang[0].SoDienThoai)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DiaChi)
+                @Html.DisplayNameFor(model => model.DonHang[0].DiaChi)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PersonName)
+                @Html.DisplayNameFor(model => model.DonHang[0].PersonName)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model.DonHang)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.MaDonHang)
@@ -37,7 +49,7 @@
                 @Html.DisplayFor(modelItem => item.SoDienThoai)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DiaChi)
+                @Html.DisplayFor(modelIMoviestem => item.DiaChi)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PersonName)

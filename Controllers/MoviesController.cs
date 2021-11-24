@@ -17,8 +17,11 @@ namespace NetCoreDemo.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> Index(string SearchString)
+        public async Task<IActionResult> Index(string movieGenre, string SearchString)
         {
+            IQueryable<string> genreQuery = from m in _context.Movie
+                                    orderby m.Genre
+                                    select m.Genre;
             var moviesList = from m in _context.Movie
                         select m;
 
@@ -26,12 +29,22 @@ namespace NetCoreDemo.Controllers
             {
                 moviesList = moviesList.Where(m => m.Title.Contains(SearchString));
             }
+        if (!string.IsNullOrEmpty(movieGenre))
+            {
+                moviesList = moviesList.Where(x => x.Genre == movieGenre);
+            }
 
-            return View(await moviesList.ToListAsync());
-        }
+            var movieGenreVM = new MovieGenreViewModel
+            {
+                Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                Movies = await moviesList.ToListAsync()
+            };
+
+            return View(movieGenreVM);
+   
+         }
 
         // GET: Movies
-       
 
         // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)
