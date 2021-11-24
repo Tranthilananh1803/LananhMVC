@@ -17,12 +17,21 @@ namespace NetCoreDemo.Controllers
         {
             _context = context;
         }
+        public async Task<IActionResult> Index(string SearchString)
+        {
+            var moviesList = from m in _context.Movie
+                        select m;
+
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                moviesList = moviesList.Where(m => m.Title.Contains(SearchString));
+            }
+
+            return View(await moviesList.ToListAsync());
+        }
 
         // GET: Movies
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Movie.ToListAsync());
-        }
+       
 
         // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)
