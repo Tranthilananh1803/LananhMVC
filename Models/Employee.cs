@@ -10,10 +10,11 @@ namespace NetCoreDemo.Models
         [Display(Name = "Mã Nhân viên")]
 
         public string EmployeeID { get; set; }
+        
         [Display(Name = "Tên Nhân viên")]
         public string EmployeeName {get; set;}
         [Display(Name = "Số điện thoại")]
         public string PhoneNumber {get; set;}
-
+        
     }
 }

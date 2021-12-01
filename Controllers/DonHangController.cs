@@ -76,7 +76,7 @@ namespace NetCoreDemo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MaDonHang,SoDienThoai,DiaChi,PersonID,PersonName")] DonHang donHang)
+        public async Task<IActionResult> Create([Bind("MaDonHang,SoDienThoai,DiaChi,PersonID,PersonName,Tenhang")] DonHang donHang)
         {
             if (ModelState.IsValid)
             {
@@ -108,7 +108,7 @@ namespace NetCoreDemo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("MaDonHang,SoDienThoai,DiaChi,PersonID,PersonName")] DonHang donHang)
+        public async Task<IActionResult> Edit(string id, [Bind("MaDonHang,SoDienThoai,DiaChi,PersonID,PersonName,Tenhang")] DonHang donHang)
         {
             if (id != donHang.PersonID)
             {

@@ -54,7 +54,7 @@ namespace NetCoreDemo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeID,EmployeeName,PhoneNumber")] Employee employee)
+        public async Task<IActionResult> Create([Bind("EmployeeID,EmployeeName,PhoneNumber ")] Employee employee)
         {
             if (ModelState.IsValid)
             {

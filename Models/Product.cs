@@ -16,6 +16,7 @@ namespace NetCoreDemo.Models
         public string UnitPrice {get; set;}
         [Display(Name = "Số lượng")]
         public string Quantity {get; set;}
+        
 
     }
 }

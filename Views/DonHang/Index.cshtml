@@ -27,6 +27,9 @@
                 @Html.DisplayNameFor(model => model.DonHang[0].MaDonHang)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.DonHang[0].Tenhang)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.DonHang[0].SoDienThoai)
             </th>
             <th>
@@ -35,6 +38,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.DonHang[0].PersonName)
             </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -44,6 +48,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.MaDonHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tenhang)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SoDienThoai)
