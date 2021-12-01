@@ -14,16 +14,9 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="MaDonHang" class="control-label"></label>
-                <input asp-for="MaDonHang" class="form-control" />
+                <input asp-for="MaDonHang" class="form-control" value="@ViewBag.MaDonHang" />
                 <span asp-validation-for="MaDonHang" class="text-danger"></span>
-            </div>
-             <div class="form-group">
-                <label asp-for="DonHangnumber" class="control-label"></label>
-                <input asp-for="DonHangnumber" class="form-control" />
-                <span asp-validation-for="DonHangnumber" class="text-danger"></span>
-            </div>
-           
-            
+            </div>     
             <div class="form-group">
                 <label asp-for="Tenhang" class="control-label"></label>
                 <input asp-for="Tenhang" class="form-control" />

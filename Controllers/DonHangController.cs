@@ -71,10 +71,10 @@ namespace NetCoreDemo.Controllers
         public IActionResult Create()
         {
             var model = _context.DonHang.ToList();
-            if (model.Count()==0)ViewBag.DonHangnumber ="A01";
+            if (model.Count()==0)ViewBag.MaDonHang="A01";
             else {
                 var newKey = model.OrderByDescending(m => m.MaDonHang).FirstOrDefault().MaDonHang;
-                ViewBag.DonHangnumber= strPro.GenerateKey (newKey);
+                ViewBag.MaDonHang= strPro.GenerateKey (newKey);
             }
             return View();
         }
