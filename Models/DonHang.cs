@@ -8,6 +8,8 @@ namespace NetCoreDemo.Models
         
         [Display(Name = "Mã Đơn Hàng")]
         public string MaDonHang{ get; set; }
+        [Display(Name = "Số")]
+        public string DonHangnumber{ get; set; }
         [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
         [Required]
         [StringLength(20)]

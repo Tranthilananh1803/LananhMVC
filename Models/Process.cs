@@ -1,0 +1,26 @@
+using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+namespace NetCoreDemo.Models
+{
+    public class Process    
+    {
+        public string GenerateKey (string id){
+            string strkey = "";
+            string numPart = "",strPart ="";
+            numPart = Regex.Match(id,@"\d+").Value;
+            int intPart = (Convert.ToInt32(numPart)+1);
+            for (int i=0;i<numPart.Length - intPart.ToString().Length;i++)
+            {
+                strPart +="0";
+
+            }
+        strkey =strPart + intPart;
+        return strkey;
+        }
+
+        
+    }
+}
