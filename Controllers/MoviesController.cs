@@ -44,19 +44,14 @@ namespace NetCoreDemo.Controllers
             {
                 moviesList = moviesList.Where(x => x.Genre == movieGenre);
             }
-
             var movieGenreVM = new MovieGenreViewModel
             {
                 Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
                 Movies = await moviesList.ToListAsync()
             };
-
             return View(movieGenreVM);
-   
-         }
-
+        }
         // GET: Movies
-
         // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -86,7 +81,7 @@ namespace NetCoreDemo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind ("Id,Title,ReleaseDate, Price,Genre,Rating")] Movie movie ,IFormFile file)
+        public async Task<IActionResult> Create( IFormFile file)
 {
     if (file!=null)
     {
@@ -99,9 +94,10 @@ namespace NetCoreDemo.Controllers
         {
             //rename file when upload to server
             //tao duong dan /Uploads/Excels de luu file upload len server
-            var fileName = "Ten file muon luu";
+            var fileName = "FileExcel";
             var filePath = Path.Combine(Directory.GetCurrentDirectory() + "/Uploads/Excels", fileName + fileExtension);
             var fileLocation = new FileInfo(filePath).ToString();
+            
 
             if (ModelState.IsValid)
             {
@@ -218,12 +214,12 @@ namespace NetCoreDemo.Controllers
                 var con = Configuration.GetConnectionString("NetCoreDemoContext");
                 SqlBulkCopy bulkCopy = new SqlBulkCopy(con);
                 bulkCopy.DestinationTableName = "Movie";
-                bulkCopy.ColumnMappings.Add(1,"Id");
+                bulkCopy.ColumnMappings.Add(0,"Id");
                 bulkCopy.ColumnMappings.Add(1,"Title");
-                bulkCopy.ColumnMappings.Add(1,"ReleaseDate");
-                bulkCopy.ColumnMappings.Add(1,"Price");
-                bulkCopy.ColumnMappings.Add(1,"Genre");
-                bulkCopy.ColumnMappings.Add(1,"Rating");
+                bulkCopy.ColumnMappings.Add(2,"ReleaseDate");
+                bulkCopy.ColumnMappings.Add(3,"Price");
+                bulkCopy.ColumnMappings.Add(4,"Genre");
+                bulkCopy.ColumnMappings.Add(5,"Rating");
                 bulkCopy.WriteToServer(dt);
 
             }
